@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gmd:MD_Metadata xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gsr="http://www.isotc211.org/2005/gsr" xmlns:gss="http://www.isotc211.org/2005/gss" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:srv="http://www.isotc211.org/2005/srv" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gmx="http://www.isotc211.org/2005/gmx" xmlns:geonet="http://www.fao.org/geonetwork" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.isotc211.org/2005/gmx http://eden.ign.fr/xsd/isotc211/isofull/20090316/gmx/gmx.xsd http://www.isotc211.org/2005/srv http://eden.ign.fr/xsd/isotc211/isofull/20090316/srv/srv.xsd">
+	<gmd:fileIdentifier xmlns:gml="http://www.opengis.net/gml">
+		<gco:CharacterString>B7E65842-C041-4950-BF0C-3AF06C2DBAE7</gco:CharacterString>
+	</gmd:fileIdentifier>
+	<gmd:language>
+		<gmd:LanguageCode codeList="http://www.loc.gov/standards/iso639-2/php/code_list.php" codeListValue="eng">eng</gmd:LanguageCode>
+	</gmd:language>
+	<gmd:hierarchyLevel>
+		<gmd:MD_ScopeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#MD_ScopeCode" codeListValue="dataset">dataset</gmd:MD_ScopeCode>
+	</gmd:hierarchyLevel>
+	<gmd:contact>
+		<gmd:CI_ResponsibleParty>
+			<gmd:individualName>
+				<gco:CharacterString>David Donnelly</gco:CharacterString>
+			</gmd:individualName>
+			<gmd:organisationName>
+				<gco:CharacterString>The James Hutton Institute</gco:CharacterString>
+			</gmd:organisationName>
+			<gmd:positionName>
+				<gco:CharacterString>Research Scientist</gco:CharacterString>
+			</gmd:positionName>
+			<gmd:contactInfo>
+				<gmd:CI_Contact>
+					<gmd:phone>
+						<gmd:CI_Telephone>
+							<gmd:voice>
+								<gco:CharacterString>01224 395265</gco:CharacterString>
+							</gmd:voice>
+						</gmd:CI_Telephone>
+					</gmd:phone>
+					<gmd:address>
+						<gmd:CI_Address>
+							<gmd:deliveryPoint>
+								<gco:CharacterString>Craigiebuckler</gco:CharacterString>
+							</gmd:deliveryPoint>
+							<gmd:city>
+								<gco:CharacterString>Aberdeen</gco:CharacterString>
+							</gmd:city>
+							<gmd:postalCode>
+								<gco:CharacterString>AB15 8QH</gco:CharacterString>
+							</gmd:postalCode>
+							<gmd:country>
+								<gco:CharacterString>United Kingdom</gco:CharacterString>
+							</gmd:country>
+							<gmd:electronicMailAddress>
+								<gco:CharacterString>david.donnelly@hutton.ac.uk</gco:CharacterString>
+							</gmd:electronicMailAddress>
+						</gmd:CI_Address>
+					</gmd:address>
+				</gmd:CI_Contact>
+			</gmd:contactInfo>
+			<gmd:role>
+				<gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="pointOfContact">pointOfContact</gmd:CI_RoleCode>
+			</gmd:role>
+		</gmd:CI_ResponsibleParty>
+	</gmd:contact>
+	<gmd:dateStamp>
+		<gco:DateTime xmlns:gml="http://www.opengis.net/gml">2014-03-11T08:44:49</gco:DateTime>
+	</gmd:dateStamp>
+	<gmd:referenceSystemInfo>
+		<gmd:MD_ReferenceSystem>
+			<gmd:referenceSystemIdentifier>
+				<gmd:RS_Identifier>
+					<gmd:code>
+						<gco:CharacterString>urn:ogc:def:crs:EPSG::27700</gco:CharacterString>
+					</gmd:code>
+				</gmd:RS_Identifier>
+			</gmd:referenceSystemIdentifier>
+		</gmd:MD_ReferenceSystem>
+	</gmd:referenceSystemInfo>
+	<gmd:identificationInfo>
+		<gmd:MD_DataIdentification>
+			<gmd:citation>
+				<gmd:CI_Citation>
+					<gmd:title>
+						<gco:CharacterString>1:250,000 Land Capability for Agriculture of Scotland</gco:CharacterString>
+					</gmd:title>
+					<gmd:alternateTitle>
+						<gco:CharacterString>Soils of Scotland LCA</gco:CharacterString>
+					</gmd:alternateTitle>
+					<gmd:alternateTitle>
+						<gco:CharacterString>LCA250K</gco:CharacterString>
+					</gmd:alternateTitle>
+					<gmd:date>
+						<gmd:CI_Date>
+							<gmd:date>
+								<gco:Date>2014-04-01</gco:Date>
+							</gmd:date>
+							<gmd:dateType>
+								<gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode" codeListValue="creation">creation</gmd:CI_DateTypeCode>
+							</gmd:dateType>
+						</gmd:CI_Date>
+					</gmd:date>
+					<gmd:identifier>
+						<gmd:MD_Identifier>
+							<gmd:code>
+								<gco:CharacterString>LCA250K</gco:CharacterString>
+							</gmd:code>
+						</gmd:MD_Identifier>
+					</gmd:identifier>
+					<gmd:presentationForm>
+						<gmd:CI_PresentationFormCode codeList="http://www.isotc211.org/2005/resources/codeList.xml#CI_PresentationFormCode" codeListValue="mapDigital"/>
+					</gmd:presentationForm>
+				</gmd:CI_Citation>
+			</gmd:citation>
+			<gmd:abstract>
+				<gco:CharacterString>The Land Capability Classification for Agriculture has as its objective the presentation of detailed information on soil, climate and relief in a form which will be of value to land use planners, agricultural advisers, farmers and others involved in optimising the use of land resources. The classification ranks land on the basis of its potential productivity and cropping flexibility determined by the extent to which its physical characteristics (soil, climate and relief) impose long term restrictions on its agricultural use.
+				 THE CLASSES Class 1: Land capable of producing a very wide range of crops. Cropping is highly flexible and includes the more exacting crops such as winter harvested vegetables (cauliflowers, brussels sprouts, leeks), The level of yield is consistently high. Soils are usually well-drained deep loams, sandy loams, silty loams, or their related humic variants, with good reserves of moisture. Sites are level or gently sloping and the climate is favourable. There are no or only very minor physical limitations affecting agricultural use. Class 2: Land capable of producing a wide range of crops. Cropping is very flexible and a wide range of crops can be grown though some root and winter harvested crops may not be ideal choices because of difficulties in harvesting. The level of yield is high but less consistently obtained than on Class 1 land due to the effects of minor limitations affecting cultivation, crop growth or harvesting. The limitations include, either singly or in combination, slight workability or wetness problems, slightly unfavourable soil structure or texture, moderate slopes or slightly unfavourable climate. The limitations are always minor in their effect however and land in the class is highly productive.
+				 Class 3: Land capable of producing a moderate range of crops. Land in this class is capable of producing good yields of a narrow range of crops, principally cereals and grass, and/or moderate yields of a wider range including potatoes, some vegetable crops (e.g. field beans and summer harvested brassicae) and oil-seed rape. The degree of variability between years will be greater than is the case for Classes 1 and 2, mainly due to interactions between climate, soil and management factors affecting the timing and type of cultivations, sowing and harvesting. The moderate limitations require careful management and include wetness, restrictions to rooting depth, unfavourable structure or texture, strongly sloping ground, slight erosion or a variable climate. The range of soil types within the class is greater than for previous classes. Division 3.1 Land in this division is capable of producing consistently high yields of a narrow range of crops (principally cereals and grass) and/or moderate yields of a wider range (including potatoes, field beans and other common root crops). Short grass leys are common. Division 3.2 Land in this division is capable of average production but high yields of barley, oats and grass are often obtained. Other crops are limited to potatoes and forage crops. Grass leys are common and reflect the increasing growth limitations for arable crops and degree of risk involved on their production. Class 4: Land capable of producing a narrow range of crops. The land is suitable for enterprises based primarily on grassland with short arable breaks (e.g. barley, oats, forage crops). Yields of arable crops are variable due to soil, wetness or climatic factors. Yields of grass are often high but difficulties of production or utilisation may be encountered. The moderately severe levels of limitation restrict the choice of crops and demand careful management. The limitations may include moderately severe wetness, occasional damaging floods, shallow or very stony soils, moderately steep gradients, erosion, moderately severe climate or interactions of these which increase the level of farming risk. Division 4.1 Land in this division is suited to rotations which, although primarily based on ley grassland, include forage crops and cereals for stock feed. Yields of grass are high but difficulties of utilization and conservation may be encountered. Other crop yields are very variable and usually below the national average. Division 4.2 The land is primarily grassland with some limited potential for other crops. Grass yeilds can be high but the difficulties of conservation or utilisation may be severe, especially in areas of poor climate or on very wet soils. Some forage cropping is possible and, when the extra risks involved can be accepted, an occasional cereal crop.
+				 Class 5: Land suited only to improved grassland and rough grazing. Land capable of use as improved grassland. The agricultural use of land in Class 5 is restricted to grass production but such land frequently plays an important role in the economy of British hill lands. Mechanised surface treatments to improve the grassland, ranging from ploughing through rotation to surface seeding and improvement by non-disruptive techniques are all possible. Although an occasional pioneer forage crop may be grown, one or more severe limitations render the land unsuited to arable cropping. These include adverse climate, wetness, frequent damaging floods, steep slopes, soil defects or erosion risk. Grass yields within the class can be variable and difficulties in production, and particularly utilisation, are common. Division 5.1 Establishment of a grass sward and its maintenance present few problems and potential yields are high with ample growth throughout the season. Patterns of soil, slope or wetness may be slightly restricting but the land has few poaching problems. High stocking rates are possible. Division 5.2 Sward establishment presents no difficulties but moderate or low trafficability, patterned land and/or strong slopes cause maintenance problems. Growth rates are high and despite some problems of poaching satisfactory stocking rates are achievable. Division 5.3 Land in this division has properties which lead to serious trafficability and poaching difficulties and although sward establishment may be easy, deterioration in quality is often rapid. Patterns of soil, slope, and wetness may seriously interfere with establishment and/or maintenance. The land cannot support high stock densities without damage and this may be serious after heavy rain even in summer. Class 6: Land capable only of use as rough grazing. The land has very severe site, soil or wetness limitations which generally prevent the use of tractor-operated machinery for improvement. Some reclamation of small patches to encourage stock to range is often possible. Climate is often a very significant limiting factor. A range of widely different qualities of grazing is included, from very steep land with significant grazing value in the lowland situation to moorland with a low but sustained production in the uplands. Grazing is usually insignificant in the arctic zones of the mountain lands but below this level grazings which can be utilised for five months or longer in any year are included in the class. Land affected by severe industrial pollution or dereliction may be included if the effects of the pollution are non-toxic. Division 6.1 Land in this division has high proportions of palatable herbage in the sward, principally the better grasses, e.g. meadow grass-bent grassland and bent-fescue grassland. Division 6.2 Moderate quality herbage such as white and flying bent grasslands, rush pastures and herb-rich moorlands or mosaics of high and low grazing values characterise land in this division. Division 6.3 This vegetation is dominated by plant communities with low grazing values. Particularly heather moor, bog heather moor and blanket bog. Class 7: Land of very limited agricultural value. Land with extremely severe limitations that cannot be rectified. The limitations may result from one or more of the following defects: extremely severe wetness, extremely stony, rocky land, bare soils, scree or beach sand and gravels, toxic waste tips and dereliction, very steep gradients, severe erosion including intensively hagged peat lands and extremely severe climates (exposed situations, protracted snow-cover and short growing season). Agricultural use is restricted to very poor rough grazing.
+				 THE DIVISIONS A division is a ranking within a class; the approach to it however needs to be selective. Because the requirements of the crops suited to Classes 1 and 2 are fairly stringent, land in these classes has inherently low degrees of internal variability. The requirements of crops grown in the remaining classes are less rigorous, consequently land included is more variable in character and covers larger areas. For purposes of strategic and regional planning, it is quite clear that some further guidance is necessary in these areas, although for detailed planning the variability of the class dictates that on-site inspections must always be made. Classes 3 and 4 each have two divisions based on increasing restrictions to arable cropping. These are principally climate, in particular the reliability of suitable weather conditions and interactions between soil properties and climatic features. Qualities of land such as workability and droughtiness are particularly affected. Relatively small amounts of rain upon clayey topsoils may equal or exceed in their effect upon farming, that of large amounts upon coarser topsoil textures for example. Site criteria and erosion play relatively small parts. Class 5 land has three divisions based on potential for successful reclamation and Class 6 three based upon the value of the existing vegetation for grazing purposes.
+
+</gco:CharacterString>
+			</gmd:abstract>
+			<gmd:pointOfContact>
+				<gmd:CI_ResponsibleParty>
+					<gmd:individualName>
+						<gco:CharacterString>Colin Campbell</gco:CharacterString>
+					</gmd:individualName>
+					<gmd:organisationName>
+						<gco:CharacterString>The James Hutton Institute</gco:CharacterString>
+					</gmd:organisationName>
+					<gmd:positionName>
+						<gco:CharacterString>Director of Science Excellence</gco:CharacterString>
+					</gmd:positionName>
+					<gmd:contactInfo>
+						<gmd:CI_Contact>
+							<gmd:address>
+								<gmd:CI_Address>
+									<gmd:deliveryPoint>
+										<gco:CharacterString>Craigiebuckler</gco:CharacterString>
+									</gmd:deliveryPoint>
+									<gmd:city>
+										<gco:CharacterString>Aberdeen</gco:CharacterString>
+									</gmd:city>
+									<gmd:postalCode>
+										<gco:CharacterString>AB15 8QH</gco:CharacterString>
+									</gmd:postalCode>
+									<gmd:country>
+										<gco:CharacterString>United Kingdom</gco:CharacterString>
+									</gmd:country>
+									<gmd:electronicMailAddress>
+										<gco:CharacterString>colin.campbell@hutton.ac.uk</gco:CharacterString>
+									</gmd:electronicMailAddress>
+								</gmd:CI_Address>
+							</gmd:address>
+						</gmd:CI_Contact>
+					</gmd:contactInfo>
+					<gmd:role>
+						<gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="custodian">custodian</gmd:CI_RoleCode>
+					</gmd:role>
+				</gmd:CI_ResponsibleParty>
+			</gmd:pointOfContact>
+			<gmd:pointOfContact>
+				<gmd:CI_ResponsibleParty>
+					<gmd:individualName>
+						<gco:CharacterString>David Donnelly</gco:CharacterString>
+					</gmd:individualName>
+					<gmd:organisationName>
+						<gco:CharacterString>The James Hutton Institute</gco:CharacterString>
+					</gmd:organisationName>
+					<gmd:positionName>
+						<gco:CharacterString>Research Scientist</gco:CharacterString>
+					</gmd:positionName>
+					<gmd:contactInfo>
+						<gmd:CI_Contact>
+							<gmd:phone>
+								<gmd:CI_Telephone>
+									<gmd:voice>
+										<gco:CharacterString>01224 395265</gco:CharacterString>
+									</gmd:voice>
+								</gmd:CI_Telephone>
+							</gmd:phone>
+							<gmd:address>
+								<gmd:CI_Address>
+									<gmd:deliveryPoint>
+										<gco:CharacterString>Craigiebuckler</gco:CharacterString>
+									</gmd:deliveryPoint>
+									<gmd:city>
+										<gco:CharacterString>Aberdeen</gco:CharacterString>
+									</gmd:city>
+									<gmd:postalCode>
+										<gco:CharacterString>AB15 8QH</gco:CharacterString>
+									</gmd:postalCode>
+									<gmd:country>
+										<gco:CharacterString>United Kingdom</gco:CharacterString>
+									</gmd:country>
+									<gmd:electronicMailAddress>
+										<gco:CharacterString>david.donnelly@hutton.ac.uk</gco:CharacterString>
+									</gmd:electronicMailAddress>
+								</gmd:CI_Address>
+							</gmd:address>
+						</gmd:CI_Contact>
+					</gmd:contactInfo>
+					<gmd:role>
+						<gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="processor">processor</gmd:CI_RoleCode>
+					</gmd:role>
+				</gmd:CI_ResponsibleParty>
+			</gmd:pointOfContact>
+			<gmd:resourceMaintenance>
+				<gmd:MD_MaintenanceInformation>
+					<gmd:maintenanceAndUpdateFrequency>
+						<gmd:MD_MaintenanceFrequencyCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#MD_MaintenanceFrequencyCode" codeListValue="irregular">irregular</gmd:MD_MaintenanceFrequencyCode>
+					</gmd:maintenanceAndUpdateFrequency>
+				</gmd:MD_MaintenanceInformation>
+			</gmd:resourceMaintenance>
+			<gmd:graphicOverview>
+				<gmd:MD_BrowseGraphic>
+					<gmd:fileName>
+						<gco:CharacterString>LCA250k_thumb_large_s.png</gco:CharacterString>
+					</gmd:fileName>
+					<gmd:fileDescription>
+						<gco:CharacterString>thumbnail</gco:CharacterString>
+					</gmd:fileDescription>
+					<gmd:fileType>
+						<gco:CharacterString>png</gco:CharacterString>
+					</gmd:fileType>
+				</gmd:MD_BrowseGraphic>
+			</gmd:graphicOverview>
+			<gmd:graphicOverview>
+				<gmd:MD_BrowseGraphic>
+					<gmd:fileName>
+						<gco:CharacterString>LCA250k_thumb_large_s.png</gco:CharacterString>
+					</gmd:fileName>
+					<gmd:fileDescription>
+						<gco:CharacterString>large_thumbnail</gco:CharacterString>
+					</gmd:fileDescription>
+					<gmd:fileType>
+						<gco:CharacterString>png</gco:CharacterString>
+					</gmd:fileType>
+				</gmd:MD_BrowseGraphic>
+			</gmd:graphicOverview>
+			<gmd:resourceFormat>
+				<gmd:MD_Format>
+					<gmd:name>
+						<gco:CharacterString>Shapefile</gco:CharacterString>
+					</gmd:name>
+					<gmd:version>
+						<gco:CharacterString>8.0</gco:CharacterString>
+					</gmd:version>
+				</gmd:MD_Format>
+			</gmd:resourceFormat>
+			<gmd:descriptiveKeywords>
+				<gmd:MD_Keywords>
+					<gmd:keyword>
+						<gco:CharacterString>soil</gco:CharacterString>
+					</gmd:keyword>
+					<gmd:keyword>
+						<gco:CharacterString>land form</gco:CharacterString>
+					</gmd:keyword>
+					<gmd:keyword>
+						<gco:CharacterString>base material</gco:CharacterString>
+					</gmd:keyword>
+				</gmd:MD_Keywords>
+			</gmd:descriptiveKeywords>
+			<gmd:resourceConstraints>
+				<gmd:MD_LegalConstraints>
+					<gmd:accessConstraints>
+						<gmd:MD_RestrictionCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#MD_RestrictionCode" codeListValue="copyright">copyright</gmd:MD_RestrictionCode>
+					</gmd:accessConstraints>
+					<gmd:accessConstraints>
+						<gmd:MD_RestrictionCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#MD_RestrictionCode" codeListValue="intellectualPropertyRights">intellectualPropertyRights</gmd:MD_RestrictionCode>
+					</gmd:accessConstraints>
+					<gmd:accessConstraints>
+						<gmd:MD_RestrictionCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#MD_RestrictionCode" codeListValue="otherRestrictions">otherRestrictions</gmd:MD_RestrictionCode>
+					</gmd:accessConstraints>
+					<gmd:useConstraints>
+						<gmd:MD_RestrictionCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#MD_RestrictionCode" codeListValue="copyright">copyright</gmd:MD_RestrictionCode>
+					</gmd:useConstraints>
+					<gmd:useConstraints>
+						<gmd:MD_RestrictionCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#MD_RestrictionCode" codeListValue="intellectualPropertyRights">intellectualPropertyRights</gmd:MD_RestrictionCode>
+					</gmd:useConstraints>
+					<gmd:otherConstraints>
+						<gco:CharacterString>otherRestrictions</gco:CharacterString>
+					</gmd:otherConstraints>
+				</gmd:MD_LegalConstraints>
+			</gmd:resourceConstraints>
+			<gmd:resourceConstraints>
+				<gmd:MD_Constraints>
+					<gmd:useLimitation>
+						<gco:CharacterString>The 1:50,0000 LCA published paper maps are considered to be the reference document, this digital data was produced by digitising the 1:250,000 paper maps. This data was produced at a scale of 1:250,000. Coverage of the Scotland's main areas of arable farming is available at 1:50,000. This data is issued by The James Hutton Institute under the James Hutton Institute Open Data licence, please contact one of those named in this metadata or soils@hutton.ac.uk for further information. This data was first published in 1987 and has not been revised.</gco:CharacterString>
+					</gmd:useLimitation>
+				</gmd:MD_Constraints>
+			</gmd:resourceConstraints>
+			<gmd:spatialRepresentationType>
+				<gmd:MD_SpatialRepresentationTypeCode codeList="http://www.isotc211.org/2005/resources/codeList.xml#MD_SpatialRepresentationTypeCode" codeListValue="vector"/>
+			</gmd:spatialRepresentationType>
+			<gmd:spatialResolution>
+				<gmd:MD_Resolution>
+					<gmd:equivalentScale>
+						<gmd:MD_RepresentativeFraction>
+							<gmd:denominator>
+								<gco:Integer>250000</gco:Integer>
+							</gmd:denominator>
+						</gmd:MD_RepresentativeFraction>
+					</gmd:equivalentScale>
+				</gmd:MD_Resolution>
+			</gmd:spatialResolution>
+			<gmd:language>
+				<gmd:LanguageCode codeList="http://www.loc.gov/standards/iso639-2/php/code_list.php" codeListValue="eng">eng</gmd:LanguageCode>
+			</gmd:language>
+			<gmd:topicCategory>
+				<gmd:MD_TopicCategoryCode>farming</gmd:MD_TopicCategoryCode>
+			</gmd:topicCategory>
+			<gmd:topicCategory>
+				<gmd:MD_TopicCategoryCode>geoscientificInformation</gmd:MD_TopicCategoryCode>
+			</gmd:topicCategory>
+			<gmd:topicCategory>
+				<gmd:MD_TopicCategoryCode>environment</gmd:MD_TopicCategoryCode>
+			</gmd:topicCategory>
+			<gmd:extent>
+				<gmd:EX_Extent>
+					<gmd:geographicElement>
+						<gmd:EX_GeographicDescription>
+							<gmd:geographicIdentifier>
+								<gmd:MD_Identifier>
+									<gmd:code>
+										<gco:CharacterString>Scotland</gco:CharacterString>
+									</gmd:code>
+								</gmd:MD_Identifier>
+							</gmd:geographicIdentifier>
+						</gmd:EX_GeographicDescription>
+					</gmd:geographicElement>
+					<gmd:geographicElement>
+						<gmd:EX_GeographicBoundingBox>
+							<gmd:westBoundLongitude>
+								<gco:Decimal>-8.343553</gco:Decimal>
+							</gmd:westBoundLongitude>
+							<gmd:eastBoundLongitude>
+								<gco:Decimal>-0.705118</gco:Decimal>
+							</gmd:eastBoundLongitude>
+							<gmd:southBoundLatitude>
+								<gco:Decimal>54.548773</gco:Decimal>
+							</gmd:southBoundLatitude>
+							<gmd:northBoundLatitude>
+								<gco:Decimal>60.866019</gco:Decimal>
+							</gmd:northBoundLatitude>
+						</gmd:EX_GeographicBoundingBox>
+					</gmd:geographicElement>
+				</gmd:EX_Extent>
+			</gmd:extent>
+		</gmd:MD_DataIdentification>
+	</gmd:identificationInfo>
+	<gmd:distributionInfo>
+		<gmd:MD_Distribution>
+			<gmd:distributionFormat>
+				<gmd:MD_Format>
+					<gmd:name>
+						<gco:CharacterString>ArcGIS shapefile</gco:CharacterString>
+					</gmd:name>
+					<gmd:version>
+						<gco:CharacterString>8 +</gco:CharacterString>
+					</gmd:version>
+				</gmd:MD_Format>
+			</gmd:distributionFormat>
+			<gmd:distributor>
+				<gmd:MD_Distributor>
+					<gmd:distributorContact>
+						<gmd:CI_ResponsibleParty>
+							<gmd:individualName>
+								<gco:CharacterString>David Donnelly</gco:CharacterString>
+							</gmd:individualName>
+							<gmd:organisationName>
+								<gco:CharacterString>The James Hutton Institute</gco:CharacterString>
+							</gmd:organisationName>
+							<gmd:positionName>
+								<gco:CharacterString>Research Scientist</gco:CharacterString>
+							</gmd:positionName>
+							<gmd:contactInfo>
+								<gmd:CI_Contact>
+									<gmd:phone>
+										<gmd:CI_Telephone>
+											<gmd:voice>
+												<gco:CharacterString>01224 395265</gco:CharacterString>
+											</gmd:voice>
+										</gmd:CI_Telephone>
+									</gmd:phone>
+									<gmd:address>
+										<gmd:CI_Address>
+											<gmd:deliveryPoint>
+												<gco:CharacterString>Craigiebuckler</gco:CharacterString>
+											</gmd:deliveryPoint>
+											<gmd:city>
+												<gco:CharacterString>Aberdeen</gco:CharacterString>
+											</gmd:city>
+											<gmd:postalCode>
+												<gco:CharacterString>AB15 8QH</gco:CharacterString>
+											</gmd:postalCode>
+											<gmd:country>
+												<gco:CharacterString>United Kingdom</gco:CharacterString>
+											</gmd:country>
+											<gmd:electronicMailAddress>
+												<gco:CharacterString>david.donnelly@hutton.ac.uk</gco:CharacterString>
+											</gmd:electronicMailAddress>
+										</gmd:CI_Address>
+									</gmd:address>
+								</gmd:CI_Contact>
+							</gmd:contactInfo>
+							<gmd:role>
+								<gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="distributor">distributor</gmd:CI_RoleCode>
+							</gmd:role>
+						</gmd:CI_ResponsibleParty>
+					</gmd:distributorContact>
+					<gmd:distributionOrderProcess>
+						<gmd:MD_StandardOrderProcess>
+							<gmd:fees>
+								<gco:CharacterString>Provided under a James Hutton Institute Open Data licence.</gco:CharacterString>
+							</gmd:fees>
+							<gmd:orderingInstructions>
+								<gco:CharacterString>Contact david.donnelly@hutton.ac.uk or soils@hutton.ac.uk</gco:CharacterString>
+							</gmd:orderingInstructions>
+							<gmd:turnaround>
+								<gco:CharacterString>Usually within a working day</gco:CharacterString>
+							</gmd:turnaround>
+						</gmd:MD_StandardOrderProcess>
+					</gmd:distributionOrderProcess>
+					<gmd:distributorFormat>
+						<gmd:MD_Format>
+							<gmd:name>
+								<gco:CharacterString>Shapefile</gco:CharacterString>
+							</gmd:name>
+							<gmd:version>
+								<gco:CharacterString>8.0</gco:CharacterString>
+							</gmd:version>
+						</gmd:MD_Format>
+					</gmd:distributorFormat>
+					<gmd:distributorTransferOptions>
+						<gmd:MD_DigitalTransferOptions>
+							<gmd:onLine>
+								<gmd:CI_OnlineResource>
+									<gmd:linkage>
+										<gmd:URL>file://none</gmd:URL>
+									</gmd:linkage>
+								</gmd:CI_OnlineResource>
+							</gmd:onLine>
+						</gmd:MD_DigitalTransferOptions>
+					</gmd:distributorTransferOptions>
+				</gmd:MD_Distributor>
+			</gmd:distributor>
+			<gmd:transferOptions>
+				<gmd:MD_DigitalTransferOptions>
+					<gmd:onLine>
+						<gmd:CI_OnlineResource>
+							<gmd:linkage>
+								<gmd:URL>http://abgis01.ad.hutton.ac.uk:6080/arcgis/services/Hutton_LCA/MapServer/WMSServer?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gmd:URL>
+							</gmd:linkage>
+						</gmd:CI_OnlineResource>
+					</gmd:onLine>
+				</gmd:MD_DigitalTransferOptions>
+			</gmd:transferOptions>
+		</gmd:MD_Distribution>
+	</gmd:distributionInfo>
+	<gmd:dataQualityInfo>
+		<gmd:DQ_DataQuality>
+			<gmd:scope>
+				<gmd:DQ_Scope>
+					<gmd:level>
+						<gmd:MD_ScopeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#MD_ScopeCode" codeListValue="dataset">dataset</gmd:MD_ScopeCode>
+					</gmd:level>
+				</gmd:DQ_Scope>
+			</gmd:scope>
+			<gmd:lineage>
+				<gmd:LI_Lineage>
+					<gmd:statement>
+						<gco:CharacterString>The classification of land for agricultural purposes in Scotland is, in the general sense, as old as farming itself but the first national surveys were the Land Utilisation Survey directed by Sir Dudley Stamp during the late thirties and the classification of arable land carried out by the staff of the Department of Agriculture and Fisheries for Scotland in the forties. Both, however, were based largely on observation of the land use then current. In the mid-sixties interpretations of soil survey maps, laying more stress on the properties of land and its potential for agriculture, were developed at the Macaulay Institute for Soil Research, Aberdeen. A standard system of Land Use Capability Classification, applied by the Soil Surveys of Scotland, and of England and Wales was published in 1969 (Bibby and Mackney).
+In 1973 following a recommendation in the White Paper 'Land Resource Use in Scotland: The Government's Observations on the Report of the Select Committee on Scottish Affairs', a Standing Committee on Rural Land Use was established. One of the first subjects considered by the Committee was land use capability classification and the decision was reached that a published land classification was desirable and that a review should be carried out to establish the one most suitable to Scottish requirements. The Chief Agricultural Officer of the Department of Agriculture and Fisheries, Mr C. Mackay, was
+appointed chairman of a working party and in subsequent reports (1975 and 1977) it was concluded that the future direction of land classification and mapping in Scotland should be based on the system developed by the Macaulay Institute with some modifications and additions. The reports, which were accepted by the Standing Committee, encouraged continued co-operation with England and Wales through the Agricultural Development and Advisory Service Closed Conference of Advisory Soil Scientists Land Capability Classification Working Party. This had been established in 1974 and included representatives of the Department and Colleges of Agriculture in Scotland and the Macaulay Institute.
+From 1974 to 1981 the discussions of this committee were of the utmost value in developing the rationale and guidelines for land classification now presented. Under the able chairmanship of Mr B. Wilkinson, the following members contributed: J. S. Bibby, J. C. Clark, H. A. Douglas, P. E. Francis, G. Goodlass, D. Hewgill, F. M. B. Houston, A. D. Hughes, D. Mackney, M. J. Silverwood. R. B. Speirs, R. W. Swain, J. F. B. Tew, A. J. Thomasson and R. J. Unwin. Organisations represented included the Agricultural Science and Land and Water Services of the Ministry of Agriculture, the Department of Agriculture for Scotland, the Scottish Colleges of Agriculture, the Meteorological Office (Agrometeorological Branch) and the Soil Surveys of Scotland, and of England and Wales.
+The scientific discussions held within the Working Party plus the field excursions in Scotland, England and Wales in order to study the practical application of the system in various land classification exercises contributed significantly to the system's development and final refined version.
+In 1980 with progress on a 1:250 000 scale, soil and land capability programme well forward in Scotland, it became necessary to produce firm proposals to allow the work to proceed. The land classification for agriculture now presented owes much to the original United States Department of Agriculture Land Capability Classification (Klingebiel and Montgomery 1961), to the Land Use Capability Classification (Bibby and Mackney 1969) and to the Survey staff who have helped to improve that classification, to the various working parties and, finally, to individual discussions, contributions from Mr E. L. Birse of the Macaulay Institute being particularly helpful. The assistance of such a wide range of authorities and people is gratefully acknowledged. Nevertheless, the responsibility for errors, omissions and short-comings rest entirely with the authors.
+The Land Capability Classification for Agriculture incorporates significant advances in methods of assessment and is the basis of the interpretative maps produced by the Soil Survey Department of the Macaulay Institute for Soil Research, Aberdeen.
+Ownership of this data set was passed to the James Hutton Institute on 1st April 2011. 
+</gco:CharacterString>
+					</gmd:statement>
+				</gmd:LI_Lineage>
+			</gmd:lineage>
+		</gmd:DQ_DataQuality>
+	</gmd:dataQualityInfo>
+	<dataIdInfo><envirDesc Sync="TRUE">Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</envirDesc><dataLang><languageCode value="eng" Sync="TRUE"></languageCode><countryCode value="GBR" Sync="TRUE"></countryCode></dataLang><idCitation><resTitle Sync="TRUE">Soils25K_v8d_Phase_2</resTitle><presForm><PresFormCd value="005" Sync="TRUE"></PresFormCd></presForm></idCitation><spatRpType><SpatRepTypCd value="001" Sync="TRUE"></SpatRepTypCd></spatRpType><dataExt><geoEle><GeoBndBox esriExtentType="search"><exTypeCode Sync="TRUE">1</exTypeCode><westBL Sync="TRUE">-5.194924</westBL><eastBL Sync="TRUE">-1.763517</eastBL><northBL Sync="TRUE">57.809867</northBL><southBL Sync="TRUE">54.898452</southBL></GeoBndBox></geoEle></dataExt></dataIdInfo><mdLang><languageCode value="eng" Sync="TRUE"></languageCode><countryCode value="GBR" Sync="TRUE"></countryCode></mdLang><mdChar><CharSetCd value="004" Sync="TRUE"></CharSetCd></mdChar><Esri><DataProperties><itemProps><itemName Sync="TRUE">Soils25K_v8d_Phase_2</itemName><imsContentType Sync="TRUE">002</imsContentType><nativeExtBox><westBL Sync="TRUE">210000.000100</westBL><eastBL Sync="TRUE">414051.031500</eastBL><southBL Sync="TRUE">559999.999900</southBL><northBL Sync="TRUE">880000.562300</northBL><exTypeCode Sync="TRUE">1</exTypeCode></nativeExtBox><itemSize Sync="TRUE">110.718</itemSize><itemLocation><linkage Sync="TRUE">file://\\GORGONZOLA\D$\SSDW\SData\For_AEAT\2014_12_XX\Soils25K_v8d_Phase_2.shp</linkage><protocol Sync="TRUE">Local Area Network</protocol></itemLocation></itemProps><coordRef><type Sync="TRUE">Projected</type><geogcsn Sync="TRUE">GCS_OSGB_1936</geogcsn><csUnits Sync="TRUE">Linear Unit: Meter (1.000000)</csUnits><projcsn Sync="TRUE">British_National_Grid</projcsn><peXml Sync="TRUE">&lt;ProjectedCoordinateSystem xsi:type='typens:ProjectedCoordinateSystem' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:typens='http://www.esri.com/schemas/ArcGIS/10.1'&gt;&lt;WKT&gt;PROJCS[&amp;quot;British_National_Grid&amp;quot;,GEOGCS[&amp;quot;GCS_OSGB_1936&amp;quot;,DATUM[&amp;quot;D_OSGB_1936&amp;quot;,SPHEROID[&amp;quot;Airy_1830&amp;quot;,6377563.396,299.3249646]],PRIMEM[&amp;quot;Greenwich&amp;quot;,0.0],UNIT[&amp;quot;Degree&amp;quot;,0.0174532925199433]],PROJECTION[&amp;quot;Transverse_Mercator&amp;quot;],PARAMETER[&amp;quot;False_Easting&amp;quot;,400000.0],PARAMETER[&amp;quot;False_Northing&amp;quot;,-100000.0],PARAMETER[&amp;quot;Central_Meridian&amp;quot;,-2.0],PARAMETER[&amp;quot;Scale_Factor&amp;quot;,0.9996012717],PARAMETER[&amp;quot;Latitude_Of_Origin&amp;quot;,49.0],UNIT[&amp;quot;Meter&amp;quot;,1.0],AUTHORITY[&amp;quot;EPSG&amp;quot;,27700]]&lt;/WKT&gt;&lt;XOrigin&gt;-5220400&lt;/XOrigin&gt;&lt;YOrigin&gt;-15524400&lt;/YOrigin&gt;&lt;XYScale&gt;450481592.76709664&lt;/XYScale&gt;&lt;ZOrigin&gt;-100000&lt;/ZOrigin&gt;&lt;ZScale&gt;10000&lt;/ZScale&gt;&lt;MOrigin&gt;-100000&lt;/MOrigin&gt;&lt;MScale&gt;10000&lt;/MScale&gt;&lt;XYTolerance&gt;0.001&lt;/XYTolerance&gt;&lt;ZTolerance&gt;0.001&lt;/ZTolerance&gt;&lt;MTolerance&gt;0.001&lt;/MTolerance&gt;&lt;HighPrecision&gt;true&lt;/HighPrecision&gt;&lt;WKID&gt;27700&lt;/WKID&gt;&lt;LatestWKID&gt;27700&lt;/LatestWKID&gt;&lt;/ProjectedCoordinateSystem&gt;</peXml></coordRef></DataProperties><SyncDate>20150106</SyncDate><SyncTime>15073600</SyncTime><ModDate>20150106</ModDate><ModTime>15073600</ModTime></Esri><distInfo><distFormat><formatName Sync="TRUE">Shapefile</formatName></distFormat><distTranOps><transSize Sync="TRUE">110.718</transSize></distTranOps></distInfo><mdHrLv><ScopeCd value="005" Sync="TRUE"></ScopeCd></mdHrLv><mdHrLvName Sync="TRUE">dataset</mdHrLvName><refSysInfo><RefSystem><refSysID><identCode code="27700" Sync="TRUE"></identCode><idCodeSpace Sync="TRUE">EPSG</idCodeSpace><idVersion Sync="TRUE">7.11.2</idVersion></refSysID></RefSystem></refSysInfo><spatRepInfo><VectSpatRep><geometObjs Name="Soils25K_v8d_Phase_2"><geoObjTyp><GeoObjTypCd value="002" Sync="TRUE"></GeoObjTypCd></geoObjTyp><geoObjCnt Sync="TRUE">68010</geoObjCnt></geometObjs><topLvl><TopoLevCd value="001" Sync="TRUE"></TopoLevCd></topLvl></VectSpatRep></spatRepInfo><spdoinfo><ptvctinf><esriterm Name="Soils25K_v8d_Phase_2"><efeatyp Sync="TRUE">Simple</efeatyp><efeageom code="4" Sync="TRUE"></efeageom><esritopo Sync="TRUE">FALSE</esritopo><efeacnt Sync="TRUE">68010</efeacnt><spindex Sync="TRUE">TRUE</spindex><linrefer Sync="TRUE">FALSE</linrefer></esriterm></ptvctinf></spdoinfo><eainfo><detailed Name="Soils25K_v8d_Phase_2"><enttyp><enttypl Sync="TRUE">Soils25K_v8d_Phase_2</enttypl><enttypt Sync="TRUE">Feature Class</enttypt><enttypc Sync="TRUE">68010</enttypc></enttyp><attr><attrlabl Sync="TRUE">FID</attrlabl><attalias Sync="TRUE">FID</attalias><attrtype Sync="TRUE">OID</attrtype><attwidth Sync="TRUE">4</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale><attrdef Sync="TRUE">Internal feature number.</attrdef><attrdefs Sync="TRUE">Esri</attrdefs><attrdomv><udom Sync="TRUE">Sequential unique whole numbers that are automatically generated.</udom></attrdomv></attr><attr><attrlabl Sync="TRUE">Shape</attrlabl><attalias Sync="TRUE">Shape</attalias><attrtype Sync="TRUE">Geometry</attrtype><attwidth Sync="TRUE">0</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale><attrdef Sync="TRUE">Feature geometry.</attrdef><attrdefs Sync="TRUE">Esri</attrdefs><attrdomv><udom Sync="TRUE">Coordinates defining the features.</udom></attrdomv></attr><attr><attrlabl Sync="TRUE">AREA</attrlabl><attalias Sync="TRUE">AREA</attalias><attrtype Sync="TRUE">Double</attrtype><attwidth Sync="TRUE">19</attwidth><atprecis Sync="TRUE">18</atprecis><attscale Sync="TRUE">3</attscale></attr><attr><attrlabl Sync="TRUE">PERIMETER</attrlabl><attalias Sync="TRUE">PERIMETER</attalias><attrtype Sync="TRUE">Double</attrtype><attwidth Sync="TRUE">19</attwidth><atprecis Sync="TRUE">18</atprecis><attscale Sync="TRUE">3</attscale></attr><attr><attrlabl Sync="TRUE">CODE</attrlabl><attalias Sync="TRUE">CODE</attalias><attrtype Sync="TRUE">Integer</attrtype><attwidth Sync="TRUE">9</attwidth><atprecis Sync="TRUE">9</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">MU_CODE</attrlabl><attalias Sync="TRUE">MU_CODE</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">8</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">SMU_CODE</attrlabl><attalias Sync="TRUE">SMU_CODE</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">5</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">PHASE_CODE</attrlabl><attalias Sync="TRUE">PHASE_CODE</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">8</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">SMU_TYPE</attrlabl><attalias Sync="TRUE">SMU_TYPE</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">8</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">ASSOC_NAME</attrlabl><attalias Sync="TRUE">ASSOC_NAME</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">64</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">SMU_NAME</attrlabl><attalias Sync="TRUE">SMU_NAME</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">64</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">MSSG13_CDE</attrlabl><attalias Sync="TRUE">MSSG13_CDE</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">6</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">MSSG13</attrlabl><attalias Sync="TRUE">MSSG13</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">40</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">PHASE_DESC</attrlabl><attalias Sync="TRUE">PHASE_DESC</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">64</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">SOIL_DRAIN</attrlabl><attalias Sync="TRUE">SOIL_DRAIN</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">64</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">TEXT_QUAL</attrlabl><attalias Sync="TRUE">TEXT_QUAL</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">32</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">COMPSOIL13</attrlabl><attalias Sync="TRUE">COMPSOIL13</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">160</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">LFRM_DESCR</attrlabl><attalias Sync="TRUE">LFRM_DESCR</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">128</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">PM_DESCR</attrlabl><attalias Sync="TRUE">PM_DESCR</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">254</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">ASSOC_SYMB</attrlabl><attalias Sync="TRUE">ASSOC_SYMB</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">4</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">SMU_SYMB</attrlabl><attalias Sync="TRUE">SMU_SYMB</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">8</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">SERCDE1</attrlabl><attalias Sync="TRUE">SERCDE1</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">5</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">SERIES1</attrlabl><attalias Sync="TRUE">SERIES1</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">64</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">MSSG13CDE1</attrlabl><attalias Sync="TRUE">MSSG13CDE1</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">8</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">MSSG13_1</attrlabl><attalias Sync="TRUE">MSSG13_1</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">40</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">SERCDE2</attrlabl><attalias Sync="TRUE">SERCDE2</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">5</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">SERIES2</attrlabl><attalias Sync="TRUE">SERIES2</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">64</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">MSSG13CDE2</attrlabl><attalias Sync="TRUE">MSSG13CDE2</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">8</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">MSSG13_2</attrlabl><attalias Sync="TRUE">MSSG13_2</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">40</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">SERCDE3</attrlabl><attalias Sync="TRUE">SERCDE3</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">5</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">SERIES3</attrlabl><attalias Sync="TRUE">SERIES3</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">64</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">MSSG13CDE3</attrlabl><attalias Sync="TRUE">MSSG13CDE3</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">8</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">MSSG13_3</attrlabl><attalias Sync="TRUE">MSSG13_3</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">40</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">SERCDE4</attrlabl><attalias Sync="TRUE">SERCDE4</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">5</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">SERIES4</attrlabl><attalias Sync="TRUE">SERIES4</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">64</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">MSSG13CDE4</attrlabl><attalias Sync="TRUE">MSSG13CDE4</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">8</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">MSSG13_4</attrlabl><attalias Sync="TRUE">MSSG13_4</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">40</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">SERCDE5</attrlabl><attalias Sync="TRUE">SERCDE5</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">5</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">SERIES5</attrlabl><attalias Sync="TRUE">SERIES5</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">64</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">MSSG13CDE5</attrlabl><attalias Sync="TRUE">MSSG13CDE5</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">8</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">MSSG13_5</attrlabl><attalias Sync="TRUE">MSSG13_5</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">40</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">SERCDE6</attrlabl><attalias Sync="TRUE">SERCDE6</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">5</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">SERIES6</attrlabl><attalias Sync="TRUE">SERIES6</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">64</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">MSSG13CDE6</attrlabl><attalias Sync="TRUE">MSSG13CDE6</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">8</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">MSSG13_6</attrlabl><attalias Sync="TRUE">MSSG13_6</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">40</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">SERCDE7</attrlabl><attalias Sync="TRUE">SERCDE7</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">5</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">SERIES7</attrlabl><attalias Sync="TRUE">SERIES7</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">64</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">MSSG13CDE7</attrlabl><attalias Sync="TRUE">MSSG13CDE7</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">8</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">MSSG13_7</attrlabl><attalias Sync="TRUE">MSSG13_7</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">40</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">SERCDE8</attrlabl><attalias Sync="TRUE">SERCDE8</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">5</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">SERIES8</attrlabl><attalias Sync="TRUE">SERIES8</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">64</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">MSSG13CDE8</attrlabl><attalias Sync="TRUE">MSSG13CDE8</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">8</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">MSSG13_8</attrlabl><attalias Sync="TRUE">MSSG13_8</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">40</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">Comment</attrlabl><attalias Sync="TRUE">Comment</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">254</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">ReleasPhse</attrlabl><attalias Sync="TRUE">ReleasPhse</attalias><attrtype Sync="TRUE">SmallInteger</attrtype><attwidth Sync="TRUE">4</attwidth><atprecis Sync="TRUE">4</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">Source_Map</attrlabl><attalias Sync="TRUE">Source_Map</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">100</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">MSSG_SYMB</attrlabl><attalias Sync="TRUE">MSSG_SYMB</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">16</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr></detailed></eainfo><mdDateSt Sync="TRUE">20150106</mdDateSt></gmd:MD_Metadata>
