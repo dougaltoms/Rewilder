@@ -1,0 +1,1 @@
+https://datamap.gov.wales/geoserver/ows?service=WFS&version=1.0.0&request=GetFeature&typename=inspire-wg%3Awg_predictive_alc2&outputFormat=SHAPE-ZIP&srs=EPSG%3A27700&format_options=charset%3AUTF-8
