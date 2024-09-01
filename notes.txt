@@ -1,0 +1,10 @@
+# One-hot encoding
+Used in ML model to convert categorical data into numerical values. Can be done using pandas or sklearn
+
+# Recursive Feature Elimination (RFE)
+Selects features in a training dataset which are most suitable for predicting target variable
+
+# Useful links
+https://ati.woodlandtrust.org.uk/tree-search/
+http://www.forestdss.org.uk/geoforestdss/
+https://www.woodlandtrust.org.uk/trees-woods-and-wildlife/british-trees/native-trees
