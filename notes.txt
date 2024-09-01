@@ -4,6 +4,10 @@ Used in ML model to convert categorical data into numerical values. Can be done 
 # Recursive Feature Elimination (RFE)
 Selects features in a training dataset which are most suitable for predicting target variable
 
+# Multi-Target Regression
+Produces significantly better r^2 value (-0.1 -> 0.95) as increased granularity so better pattern/relationship
+learning specific to each species rather than combined
+
 # Useful links
 https://ati.woodlandtrust.org.uk/tree-search/
 http://www.forestdss.org.uk/geoforestdss/
