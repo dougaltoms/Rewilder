@@ -1,40 +1,41 @@
 import streamlit as st
-from streamlit_folium import st_folium
-import geopandas as gpd
-import matplotlib.pyplot as plt
+import pickle
+import pandas as pd
 
-st.header('UK Farmland Classification')
-st.subheader('Grade 4+')
+st.header('Importing a pickled regression model')
+st.markdown('---')
 
-# eng_ag = gpd.read_file('shapefiles/AgriculturalLandClassificationProvisionalEngland-SHP/Agricultural_Land_Classification_Provisional_England.shp')
-scot_ag = gpd.read_file('/Users/dougaltoms/Downloads/Hutton_LCA250K_OpenData/LCA_250K.shp')
+col1, col2, col3, col4, col5 =  st.columns(5)
 
-#==============================
-# Check unique Land Use Codes
-# eng_ag['alc_grade'].unique()
-scot_ag['LCCODE'].unique().astype(int)
+with col1:
+    latitude = st.number_input('Latitude', value=56)
+with col2:
+    longitude = st.number_input('Longitude', value=-2)
+with col3:
+    accumulated_temperature = st.number_input('Accumulated Temperature', value=1400)
+with col4:
+    soil_moisture_regime = st.number_input('SMR', value=3)
+with col5:
+    soil_nutrient_regime = st.number_input('SNR', value=3)
 
-#==============================
-# Extract digits from codes to make a uniform grading between England and Scotland
-# eng_ag['NUMERIC_GRADE'] = eng_ag['alc_grade'].str.extract('(\d+)', expand=False).astype(float)
-scot_ag['NUMERIC_GRADE'] = scot_ag['LCCODE'].astype(str).str.extract('(\d+)', expand=False).astype(float)
 
-#==============================
-# Filter each DF to remove huge ranges/NaNs <-- need to read up on what these codes actually mean
-# eng_ag = eng_ag[eng_ag['NUMERIC_GRADE'] > 0]
-scot_ag = scot_ag[scot_ag['NUMERIC_GRADE'] < 9]
+with open('model.pickle', 'rb') as file:
+    model = pickle.load(file)
 
-#==============================
-# Convert to same coords system, concat and plot based on new Land Use codes
-scot_ag = scot_ag.to_crs('EPSG:4326')
-# eng_ag = eng_ag.to_crs('EPSG:4326')
-# eng_scot_ag = gpd.pd.concat([eng_ag, scot_ag])
-# plot = eng_scot_ag.plot(figsize=(8,10), column='NUMERIC_GRADE', missing_kwds = {"color": "red"})
 
-# eng_ag.plot(column='alc_grade', figsize=(8, 10), legend=True)
+    input_data = pd.DataFrame({
+        'latitude': [latitude],
+        'longitude': [longitude],
+        'accumulated_temperature': [accumulated_temperature],
+        'soil_moisture_regime': [soil_moisture_regime],
+        'soil_nutrient_regime': [soil_nutrient_regime]})
 
-plot_df = scot_ag[['geometry','NUMERIC_GRADE']]
-plot_df = plot_df[plot_df['NUMERIC_GRADE']>1]
-m = plot_df.explore(column='NUMERIC_GRADE', color='red', tiles='CartoDB positron')
+    with st.spinner('Running model...'):
+        prediction = model.predict(input_data)
+        prediction_df = pd.DataFrame(prediction, columns=['AH', 'ASP', 'BPO', 'CAR', 'HBM', 'PBI', 'POK', 'ROK', 'ROW', 'SBI', 'SC', 'SLI', 'SOK', 'SP', 'WCH', 'WEM'])
 
-st_folium(m, zoom=6)
+        top_species = prediction_df.T.nlargest(3, 0).reset_index()
+        top_species.columns = ['Species', 'Ecosuit Score']
+
+        st.dataframe(top_species)
+
