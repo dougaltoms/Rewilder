@@ -58,6 +58,9 @@ if str(chosen_id) == '2':
 
             st.dataframe(top_species, use_container_width=True)
 
+with st.expander('Show map'):
+    st.image('uk_agri_capability.png')
+
 st.markdown('---')
 feedback = st.feedback("faces")
 if feedback:
