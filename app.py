@@ -33,7 +33,7 @@ if str(chosen_id) == '1':
 
 if str(chosen_id) == '2':
     with st.spinner('Running model...'):
-        with open('model.pickle', 'rb') as file:
+        with open('pickle/model.pickle', 'rb') as file:
 
             model = pickle.load(file)
             st.session_state['model'] = model
