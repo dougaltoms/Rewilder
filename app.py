@@ -2,14 +2,19 @@ import streamlit as st
 import pickle
 import pandas as pd
 import extra_streamlit_components as stx
+from tree_mapping import tree_mapping
+import pydeck as pdk
 
 st.header('Rewilder')
 st.subheader('Mapping rewilding suitability for native ancient tree species')
 
+df = pd.read_csv('/Users/dougaltoms/Documents/Rewilder/ecological_site_classification.csv')
+
 chosen_id = stx.tab_bar(data=[
     stx.TabBarItemData(id=1, title="Data Input", description=""),
     stx.TabBarItemData(id=2, title="Results", description=""),
-], default=1)
+    stx.TabBarItemData(id=3, title="Map", description=""),
+    ], default=1)
 
 if str(chosen_id) == '1':
 
@@ -53,10 +58,27 @@ if str(chosen_id) == '2':
             prediction = st.session_state.model.predict(st.session_state.input_data)
             prediction_df = pd.DataFrame(prediction, columns=['AH', 'ASP', 'BPO', 'CAR', 'HBM', 'PBI', 'POK', 'ROK', 'ROW', 'SBI', 'SC', 'SLI', 'SOK', 'SP', 'WCH', 'WEM'])
 
-            top_species = prediction_df.T.nlargest(5, 0).reset_index()
-            top_species.columns = ['Species', 'Ecosuit Score']
+            species_df = prediction_df.T.nlargest(5, 0).reset_index()
+            species_df.columns = ['Species Code', 'Ecosuit Score']
+            species_df['Species'] = species_df['Species Code'].map(tree_mapping)
 
-            st.dataframe(top_species, use_container_width=True)
+    
+            st.dataframe(species_df[['Species','Species Code', 'Ecosuit Score']], use_container_width=True, hide_index=True)
+
+if str(chosen_id) == '3':
+
+
+    st.write('Streamlit Plot')
+    df = df[df['latitude'].between((st.session_state.latitude)-1, (st.session_state.latitude)+1)]
+    df = df[df['longitude'].between((st.session_state.longitude)-1, (st.session_state.longitude)+1)]
+    st.map(df)
+
+    # st.write('Filtered Base Plot')
+    # with open('pickle/uk_ag.pickle', 'rb') as f:
+
+    #         uk_ag = pickle.load(f)
+    #         uk_ag = uk_ag.cx[ (st.session_state.longitude-1):(st.session_state.longitude+1), (st.session_state.latitude-1):(st.session_state.latitude+1)]
+    #         uk_ag.explore()
 
 with st.expander('Show map'):
     st.image('uk_agri_capability.png')
