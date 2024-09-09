@@ -3,7 +3,10 @@ import pickle
 import pandas as pd
 import extra_streamlit_components as stx
 from tree_mapping import tree_mapping
-import pydeck as pdk
+from streamlit_folium import st_folium
+import folium
+import geopandas as gpd
+from shapely.geometry import Point
 
 st.header('Rewilder')
 st.subheader('Mapping rewilding suitability for native ancient tree species')
@@ -19,21 +22,20 @@ chosen_id = stx.tab_bar(data=[
 if str(chosen_id) == '1':
 
     col1, col2, col3, col4, col5 =  st.columns(5)
-
     with col1:
-        latitude = st.number_input('Latitude', value=56)
+        latitude = st.number_input('Latitude', value=56, min_value = 50, max_value=60)
         st.session_state['latitude'] = latitude
     with col2:
-        longitude = st.number_input('Longitude', value=-2)
+        longitude = st.number_input('Longitude', value=-2, min_value=-7, max_value=2)
         st.session_state['longitude'] = longitude
     with col3:
-        accumulated_temperature = st.number_input('Accumulated Temp', value=1400, step=10)
+        accumulated_temperature = st.number_input('Accumulated Temp', value=1400, step=10, min_value = 140, max_value=2200)
         st.session_state['accumulated_temperature'] = accumulated_temperature
     with col4:
-        soil_moisture_regime = st.number_input('SMR', value=3)
+        soil_moisture_regime = st.selectbox('SMR', options=[0,1,2,3,4,5,6,7,8], index=4)
         st.session_state['soil_moisture_regime'] = soil_moisture_regime
     with col5:
-        soil_nutrient_regime = st.number_input('SNR', value=3)
+        soil_nutrient_regime = st.selectbox('SNR', options=[0,1,2,3,4,5,6],index=3)
         st.session_state['soil_nutrient_regime'] = soil_nutrient_regime
 
 if str(chosen_id) == '2':
@@ -67,18 +69,43 @@ if str(chosen_id) == '2':
 
 if str(chosen_id) == '3':
 
-
     st.write('Streamlit Plot')
-    df = df[df['latitude'].between((st.session_state.latitude)-1, (st.session_state.latitude)+1)]
-    df = df[df['longitude'].between((st.session_state.longitude)-1, (st.session_state.longitude)+1)]
+    df = df[df['latitude'].between((st.session_state.latitude)-.5, (st.session_state.latitude)+.5)]
+    df = df[df['longitude'].between((st.session_state.longitude)-.5, (st.session_state.longitude)+.5)]
     st.map(df)
 
-    # st.write('Filtered Base Plot')
-    # with open('pickle/uk_ag.pickle', 'rb') as f:
+    st.write('Filtered Plot')
+    with open('pickle/uk_ag.pickle', 'rb') as file:
+            
+            print('Loading file')
+            uk_ag = pickle.load(file)
+            print('Getting point')
+            point = gpd.GeoSeries([Point(st.session_state.longitude, st.session_state.latitude)], crs="EPSG:4326")
 
-    #         uk_ag = pickle.load(f)
-    #         uk_ag = uk_ag.cx[ (st.session_state.longitude-1):(st.session_state.longitude+1), (st.session_state.latitude-1):(st.session_state.latitude+1)]
-    #         uk_ag.explore()
+            if uk_ag.crs != point.crs:
+                uk_ag = uk_ag.to_crs(point.crs)
+
+            print('Calculatinf distance')
+            uk_ag['distance_to_point'] = uk_ag['geometry'].distance(point[0])
+            threshold = .25
+            uk_ag_filtered = uk_ag[uk_ag['distance_to_point'] <= threshold]
+            st_folium(uk_ag_filtered.explore('NUMERIC_GRADE'))#,tiles="Stadia.AlidadeSmoothDark",attr = "© Dougal Toms" )
+
+    st.write('Folium Plot')
+    with st.spinner('Creating Map'):
+
+        base_map_satellite = st.toggle('Satellite')
+
+        if not base_map_satellite:
+            tiles="Stadia.AlidadeSmoothDark"
+            attr = "© Dougal Toms"
+        else:
+            tiles="Stadia.AlidadeSatellite"
+            attr = '© Dougal Toms'
+        
+        m = folium.Map(zoom_start=9, tiles=tiles, location=(st.session_state.latitude, st.session_state.longitude), attr=attr)
+        st_folium(m, height=400, width=700)
+
 
 with st.expander('Show map'):
     st.image('uk_agri_capability.png')
