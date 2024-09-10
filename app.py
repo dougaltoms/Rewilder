@@ -38,6 +38,9 @@ if str(chosen_id) == '1':
         soil_nutrient_regime = st.selectbox('SNR', options=[0,1,2,3,4,5,6],index=3)
         st.session_state['soil_nutrient_regime'] = soil_nutrient_regime
 
+    with st.expander('Show map'):
+        st.image('uk_agri_capability.png')
+
 if str(chosen_id) == '2':
     with st.spinner('Running model...'):
         with open('pickle/model.pickle', 'rb') as file:
@@ -74,41 +77,35 @@ if str(chosen_id) == '3':
     df = df[df['longitude'].between((st.session_state.longitude)-.5, (st.session_state.longitude)+.5)]
     st.map(df)
 
-    st.write('Filtered Plot')
-    with open('pickle/uk_ag.pickle', 'rb') as file:
-            
-            print('Loading file')
-            uk_ag = pickle.load(file)
-            print('Getting point')
-            point = gpd.GeoSeries([Point(st.session_state.longitude, st.session_state.latitude)], crs="EPSG:4326")
+    filtered_plot = st.toggle('Plot Land Use')
+    if filtered_plot:
+        with st.spinner('Creating Map'):
+            with open('pickle/uk_ag.pickle', 'rb') as file:
+                    
+                    print('Loading file')
+                    uk_ag = pickle.load(file)
+                    print('Getting point')
+                    point = gpd.GeoSeries([Point(st.session_state.longitude, st.session_state.latitude)], crs="EPSG:4326")
 
-            if uk_ag.crs != point.crs:
-                uk_ag = uk_ag.to_crs(point.crs)
+                    if uk_ag.crs != point.crs:
+                        uk_ag = uk_ag.to_crs(point.crs)
 
-            print('Calculatinf distance')
-            uk_ag['distance_to_point'] = uk_ag['geometry'].distance(point[0])
-            threshold = .25
-            uk_ag_filtered = uk_ag[uk_ag['distance_to_point'] <= threshold]
-            st_folium(uk_ag_filtered.explore('NUMERIC_GRADE'))#,tiles="Stadia.AlidadeSmoothDark",attr = "© Dougal Toms" )
+                    print('Calculatinf distance')
+                    uk_ag['distance_to_point'] = uk_ag['geometry'].distance(point[0])
+                    threshold = .25
+                    uk_ag_filtered = uk_ag[uk_ag['distance_to_point'] <= threshold]
+                    st_folium(uk_ag_filtered.explore('NUMERIC_GRADE'))#,tiles="Stadia.AlidadeSmoothDark",attr = "© Dougal Toms" )
 
-    st.write('Folium Plot')
-    with st.spinner('Creating Map'):
-
-        base_map_satellite = st.toggle('Satellite')
-
-        if not base_map_satellite:
-            tiles="Stadia.AlidadeSmoothDark"
-            attr = "© Dougal Toms"
-        else:
-            tiles="Stadia.AlidadeSatellite"
-            attr = '© Dougal Toms'
+        # if not base_map_satellite:
+        #     tiles="Stadia.AlidadeSmoothDark"
+        #     attr = "© Dougal Toms"
+        # else:
+        #     tiles="Stadia.AlidadeSatellite"
+        #     attr = '© Dougal Toms'
         
-        m = folium.Map(zoom_start=9, tiles=tiles, location=(st.session_state.latitude, st.session_state.longitude), attr=attr)
-        st_folium(m, height=400, width=700)
+        # m = folium.Map(zoom_start=9, tiles=tiles, location=(st.session_state.latitude, st.session_state.longitude), attr=attr)
+        # st_folium(m, height=400, width=700)
 
-
-with st.expander('Show map'):
-    st.image('uk_agri_capability.png')
 
 st.markdown('---')
 feedback = st.feedback("faces")
