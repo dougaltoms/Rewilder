@@ -73,10 +73,10 @@ if str(chosen_id) == '2':
 
 if str(chosen_id) == '3':
 
-    st.write('Streamlit Plot')
-    df = df[df['latitude'].between((st.session_state.latitude)-.5, (st.session_state.latitude)+.5)]
-    df = df[df['longitude'].between((st.session_state.longitude)-.5, (st.session_state.longitude)+.5)]
-    st.map(df)
+    # st.write('Streamlit Plot')
+    # df = df[df['latitude'].between((st.session_state.latitude)-.5, (st.session_state.latitude)+.5)]
+    # df = df[df['longitude'].between((st.session_state.longitude)-.5, (st.session_state.longitude)+.5)]
+    # st.map(df)
 
     filtered_plot = st.toggle('Plot Land Use')
     if filtered_plot:
@@ -97,13 +97,10 @@ if str(chosen_id) == '3':
             uk_ag_filtered = uk_ag_filtered.dissolve(by='NUMERIC_GRADE')
             uk_ag_filtered = uk_ag_filtered.reset_index()
 
-            # st.dataframe(uk_ag_filtered)
-
-            m = uk_ag_filtered.explore('NUMERIC_GRADE',cmap='Blues',tiles="Esri.WorldImagery", attr = "© Dougal Toms")
-            Marker(
-                    location=[st.session_state.longitude, st.session_state.latitude],
-                    tooltip="Chosen location",
-                ).add_to(m)
+            m = uk_ag_filtered.explore('NUMERIC_GRADE',cmap='Blues',tiles="Stadia.AlidadeSmoothDark", attr = "© Dougal Toms")
+            # m = folium.Map(zoom_start=8, location=[st.session_state.latitude, st.session_state.longitude], tiles="Esri.WorldImagery", attr = "© Dougal Toms")
+            # choropleth = folium.Choropleth(uk_ag_filtered, columns=['NUMERIC_GRADE'], fill_color='Blues', name='Land grade', highlight=True).add_to(m)
+            # folium.LayerControl(collapsed=False).add_to(m)
             st_folium(m)
 
 st.markdown('---')
