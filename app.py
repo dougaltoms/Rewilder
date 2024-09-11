@@ -5,6 +5,7 @@ import extra_streamlit_components as stx
 from tree_mapping import tree_mapping
 from streamlit_folium import st_folium
 import folium
+from folium import Marker
 import geopandas as gpd
 from shapely.geometry import Point
 
@@ -82,30 +83,28 @@ if str(chosen_id) == '3':
         with st.spinner('Creating Map'):
             with open('pickle/uk_ag.pickle', 'rb') as file:
                     
-                    print('Loading file')
                     uk_ag = pickle.load(file)
-                    print('Getting point')
-                    point = gpd.GeoSeries([Point(st.session_state.longitude, st.session_state.latitude)], crs="EPSG:4326")
+                    st.session_state['uk_ag'] = uk_ag[['geometry', 'NUMERIC_GRADE']]
+                
+            point = gpd.GeoSeries([Point(st.session_state.longitude, st.session_state.latitude)], crs="EPSG:4326")
 
-                    if uk_ag.crs != point.crs:
-                        uk_ag = uk_ag.to_crs(point.crs)
+            if st.session_state.uk_ag.crs != point.crs:
+                st.session_state.uk_ag = st.session_state.uk_ag.to_crs(point.crs)
 
-                    print('Calculatinf distance')
-                    uk_ag['distance_to_point'] = uk_ag['geometry'].distance(point[0])
-                    threshold = .25
-                    uk_ag_filtered = uk_ag[uk_ag['distance_to_point'] <= threshold]
-                    st_folium(uk_ag_filtered.explore('NUMERIC_GRADE'))#,tiles="Stadia.AlidadeSmoothDark",attr = "© Dougal Toms" )
+            st.session_state.uk_ag['distance_to_point'] = st.session_state.uk_ag['geometry'].distance(point[0])
+            threshold = .2
+            uk_ag_filtered = st.session_state.uk_ag[st.session_state.uk_ag['distance_to_point'] <= threshold]
+            uk_ag_filtered = uk_ag_filtered.dissolve(by='NUMERIC_GRADE')
+            uk_ag_filtered = uk_ag_filtered.reset_index()
 
-        # if not base_map_satellite:
-        #     tiles="Stadia.AlidadeSmoothDark"
-        #     attr = "© Dougal Toms"
-        # else:
-        #     tiles="Stadia.AlidadeSatellite"
-        #     attr = '© Dougal Toms'
-        
-        # m = folium.Map(zoom_start=9, tiles=tiles, location=(st.session_state.latitude, st.session_state.longitude), attr=attr)
-        # st_folium(m, height=400, width=700)
+            # st.dataframe(uk_ag_filtered)
 
+            m = uk_ag_filtered.explore('NUMERIC_GRADE',cmap='Blues',tiles="Esri.WorldImagery", attr = "© Dougal Toms")
+            Marker(
+                    location=[st.session_state.longitude, st.session_state.latitude],
+                    tooltip="Chosen location",
+                ).add_to(m)
+            st_folium(m)
 
 st.markdown('---')
 feedback = st.feedback("faces")
