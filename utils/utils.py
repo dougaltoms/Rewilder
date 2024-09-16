@@ -1,18 +1,18 @@
-def return_features(conn,lat,lon):
+def return_features(df, lat, lon):
 
     lat = float(lat)
     lon = float(lon)
 
-    df = conn.execute(f'''SELECT 
-                        accumulated_temperature
-                        , soil_moisture_regime
-                        , soil_nutrient_regime
-                    FROM esc_features_interpolated
-                    ORDER BY ABS(lat - {lat}) + ABS(lon - {lon}) ASC
-                    LIMIT 1''').fetch_df()
+    row = (
+        df.loc[:, ['lat', 'lon', 'accumulated_temperature', 'soil_moisture_regime', 'soil_nutrient_regime']]
+        .assign(distance=lambda x: abs(x['lat'] - lat) + abs(x['lon'] - lon))
+        .sort_values(by='distance')
+        .head(1)
+        .drop(columns='distance')
+    )
 
-    accumulated_temperature = df['accumulated_temperature'][0]
-    soil_moisture_regime = df['soil_moisture_regime'][0]
-    soil_nutrient_regime = df['soil_nutrient_regime'][0]
+    accumulated_temperature = round(row['accumulated_temperature'].iloc[0])
+    soil_moisture_regime = round(row['soil_moisture_regime'].iloc[0],2)
+    soil_nutrient_regime = round(row['soil_nutrient_regime'].iloc[0],2)
 
     return accumulated_temperature, soil_moisture_regime, soil_nutrient_regime
