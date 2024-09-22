@@ -8,30 +8,26 @@ import folium
 from folium import Marker
 import geopandas as gpd
 from shapely.geometry import Point
-from utils.utils import return_features
+from utils.utils import return_features, tree_facts
+
 
 st.header('Rewilder')
 st.subheader('Mapping rewilding suitability for native ancient tree species')
 
+api_key = st.secrets["API_KEY"]
+
 df = pd.read_csv('ecological_site_classification.csv')
 features_df = pd.read_csv('esc_features.csv')
 
-# chosen_id = stx.tab_bar(data=[
-#     stx.TabBarItemData(id=1, title="Data Input", description=""),
-#     stx.TabBarItemData(id=2, title="Results", description=""),
-#     stx.TabBarItemData(id=3, title="Map", description=""),
-#     ], default=1)
-
 tab1, tab2, tab3 = st.tabs(['Data Input', 'Results', 'Mapping'])
 
-# if str(chosen_id) == '1':
 with tab1:
     col1, col2 =  st.columns(2)
     with col1:
-        latitude = st.number_input('Latitude', value=54.0, min_value = 50.0, max_value=60.0, step=.1)
+        latitude = st.number_input('Latitude', value=51.0, min_value = 50.0, max_value=60.0, step=.1)
         st.session_state['latitude'] = latitude
     with col2:
-        longitude = st.number_input('Longitude', value=-3.0, min_value=-7.0, max_value=2.0, step=.1)
+        longitude = st.number_input('Longitude', value=-1.0, min_value=-7.0, max_value=2.0, step=.1)
         st.session_state['longitude'] = longitude
 
     accumulated_temperature, soil_moisture_regime, soil_nutrient_regime = return_features(features_df, st.session_state.latitude, st.session_state.longitude)
@@ -53,7 +49,6 @@ with tab2:
 
             model = pickle.load(file)
             st.session_state['model'] = model
-
 
             input_data = pd.DataFrame({
                 'latitude': [st.session_state.latitude],
@@ -77,8 +72,6 @@ with tab2:
 
 with tab3:
 
-    gpd_plot = st.toggle('Folium Plot')
-
     popup_text = f''' <strong>Top 3 Predicted Tree Species</strong><br>
                             1. {species_df['Species'].iloc[0]} ({round(species_df['Ecosuit Score'].iloc[0],2)})<br>
                             2. {species_df['Species'].iloc[1]} ({round(species_df['Ecosuit Score'].iloc[1],2)})<br>
@@ -96,28 +89,22 @@ with tab3:
             st.session_state.uk_ag = st.session_state.uk_ag.to_crs(point.crs)
 
         st.session_state.uk_ag['distance_to_point'] = st.session_state.uk_ag['geometry'].distance(point[0])
-        threshold = .2
+        threshold = .10
         uk_ag_filtered = st.session_state.uk_ag[st.session_state.uk_ag['distance_to_point'] <= threshold]
-        uk_ag_filtered = uk_ag_filtered.dissolve(by='NUMERIC_GRADE')
+        uk_ag_filtered = uk_ag_filtered.dissolve(by='NUMERIC_GRADE', sort=False)
         uk_ag_filtered = uk_ag_filtered.reset_index()
         uk_ag_filtered = uk_ag_filtered[['geometry', 'NUMERIC_GRADE']]
         
-        if gpd_plot:
+        m = folium.Map(location=(-38.625, -12.875))
+        m = uk_ag_filtered.explore('NUMERIC_GRADE',m=m,cmap='autumn',tiles="Esri.WorldImagery", attr = "© Dougal Toms")
+        folium.Marker(location=[st.session_state.latitude, st.session_state.longitude],popup=folium.Popup(popup_text, max_width=300), icon=folium.Icon(color="green", icon="tree")).add_to(m)
+        st_folium(m,width=1000, height=500)
 
-            st.write('Geopandas `explore()` functionality')
-            m = uk_ag_filtered.explore('NUMERIC_GRADE',cmap='Blues',tiles="Stadia.AlidadeSmoothDark", attr = "© Dougal Toms")
-            folium.Marker(location=[st.session_state.latitude, st.session_state.longitude],popup=folium.Popup(popup_text, max_width=300), icon=folium.Icon(color="green", icon="tree")).add_to(m)
-            st_folium(m,width=1000, height=500)
+        # info = st.toggle('More info')
 
-        else:
+        with st.expander('More info'):
 
-            st.write('Native `folium` functionality')
-            m = folium.Map(zoom_start=8, location=[st.session_state.latitude, st.session_state.longitude],tiles="Stadia.AlidadeSmoothDark", attr = "© Dougal Toms")
-            folium.Choropleth(geo_data=uk_ag_filtered, columns=['geometry','NUMERIC_GRADE'], fill_color='YlGn').add_to(m)
-            folium.Marker(location=[st.session_state.latitude, st.session_state.longitude],popup=folium.Popup(popup_text, max_width=300), icon=folium.Icon(color="green", icon="tree")).add_to(m)
-            # folium.Marker(location=[st.session_state.latitude, st.session_state.longitude],popup='User input',).add_to(m)
-            st_folium(m,width=1000, height=500)
-
+            tree_facts(species_df['Species'].iloc[0], api_key)
 
 st.markdown('---')
 with st.expander('Show map'):
