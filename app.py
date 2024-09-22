@@ -9,6 +9,7 @@ from folium import Marker
 import geopandas as gpd
 from shapely.geometry import Point
 from utils.utils import return_features, tree_facts
+from geopy.geocoders import Nominatim
 
 
 st.header('Rewilder')
@@ -22,14 +23,30 @@ features_df = pd.read_csv('esc_features.csv')
 tab1, tab2, tab3 = st.tabs(['Data Input', 'Results', 'Mapping'])
 
 with tab1:
+
+    # Input Postcode
+    postcode = st.text_input('Postcode', max_chars=8, value='NR2 1DZ')
+    postcode = str(postcode.upper())
+    geolocator = Nominatim(user_agent="postcode_converter")
+    location = geolocator.geocode(postcode)
+
+    st.session_state['latitude'] = location.latitude
+    st.session_state['longitude'] = location.longitude
+
     col1, col2 =  st.columns(2)
     with col1:
-        latitude = st.number_input('Latitude', value=51.0, min_value = 50.0, max_value=60.0, step=.1)
-        st.session_state['latitude'] = latitude
+        if 'latitude' in st.session_state:
+            latitude = st.number_input('Latitude', value=st.session_state.latitude, min_value = 50.0, max_value=60.0, step=.1)
+        else:
+            latitude = st.number_input('Latitude', value=52.6, min_value = 50.0, max_value=60.0, step=.1)
+            st.session_state['latitude'] = latitude
     with col2:
-        longitude = st.number_input('Longitude', value=-1.0, min_value=-7.0, max_value=2.0, step=.1)
-        st.session_state['longitude'] = longitude
-
+        if 'longitude' in st.session_state:
+            longitude = st.number_input('Longitude', value=st.session_state.longitude, min_value=-7.0, max_value=2.0, step=.1)
+        else:
+            longitude = st.number_input('Latitude', value=52.6, min_value = 50.0, max_value=60.0, step=.1)
+            st.session_state['longitude'] = longitude
+    
     accumulated_temperature, soil_moisture_regime, soil_nutrient_regime = return_features(features_df, st.session_state.latitude, st.session_state.longitude)
     st.session_state['accumulated_temperature'] = accumulated_temperature
     st.session_state['soil_moisture_regime'] = soil_moisture_regime
@@ -42,6 +59,10 @@ with tab1:
         st.metric('Soil Moisture Regime', soil_moisture_regime)
     with res3:
         st.metric('Soil Nutrient Regime', soil_nutrient_regime)
+
+    st.markdown('---')
+    with st.expander('Show map'):
+        st.image('uk_agri_capability.png')    
 
 with tab2:
     with st.spinner('Running model...'):
@@ -78,37 +99,33 @@ with tab3:
                             3. {species_df['Species'].iloc[2]} ({round(species_df['Ecosuit Score'].iloc[2],2)})'''
     
     with st.spinner('Creating Map'):
-        with open('pickle/uk_ag.pickle', 'rb') as file:
+        with open('pickle/uk_ag_low.pickle', 'rb') as file:
                 
-                uk_ag = pickle.load(file)
-                st.session_state['uk_ag'] = uk_ag[['geometry', 'NUMERIC_GRADE']]
+            uk_ag = pickle.load(file)
+            st.session_state['uk_ag'] = uk_ag[['geometry', 'NUMERIC_GRADE']]
+            file.close()
             
-        point = gpd.GeoSeries([Point(st.session_state.longitude, st.session_state.latitude)], crs="EPSG:4326")
+            point = gpd.GeoSeries([Point(st.session_state.longitude, st.session_state.latitude)], crs="EPSG:4326")
 
-        if st.session_state.uk_ag.crs != point.crs:
-            st.session_state.uk_ag = st.session_state.uk_ag.to_crs(point.crs)
+            if st.session_state.uk_ag.crs != point.crs:
+                st.session_state.uk_ag = st.session_state.uk_ag.to_crs(point.crs)
 
-        st.session_state.uk_ag['distance_to_point'] = st.session_state.uk_ag['geometry'].distance(point[0])
-        threshold = .10
-        uk_ag_filtered = st.session_state.uk_ag[st.session_state.uk_ag['distance_to_point'] <= threshold]
-        uk_ag_filtered = uk_ag_filtered.dissolve(by='NUMERIC_GRADE', sort=False)
-        uk_ag_filtered = uk_ag_filtered.reset_index()
-        uk_ag_filtered = uk_ag_filtered[['geometry', 'NUMERIC_GRADE']]
-        
-        m = folium.Map(location=(-38.625, -12.875))
-        m = uk_ag_filtered.explore('NUMERIC_GRADE',m=m,cmap='autumn',tiles="Esri.WorldImagery", attr = "© Dougal Toms")
-        folium.Marker(location=[st.session_state.latitude, st.session_state.longitude],popup=folium.Popup(popup_text, max_width=300), icon=folium.Icon(color="green", icon="tree")).add_to(m)
-        st_folium(m,width=1000, height=500)
+            st.session_state.uk_ag['distance_to_point'] = st.session_state.uk_ag['geometry'].distance(point[0])
+            threshold = .2
+            uk_ag_filtered = st.session_state.uk_ag[st.session_state.uk_ag['distance_to_point'] <= threshold]
+            uk_ag_filtered = uk_ag_filtered.dissolve(by='NUMERIC_GRADE', sort=False)
+            uk_ag_filtered = uk_ag_filtered.reset_index()
+            uk_ag_filtered = uk_ag_filtered[['geometry', 'NUMERIC_GRADE']]
 
-        # info = st.toggle('More info')
+            m = uk_ag_filtered.explore('NUMERIC_GRADE',cmap='autumn',tiles="Esri.WorldImagery", attr = "© Dougal Toms", legend=False)
+            folium.Marker(location=[st.session_state.latitude, st.session_state.longitude],popup=folium.Popup(popup_text, max_width=300), icon=folium.Icon(color="green", icon="tree")).add_to(m)
+            st_folium(m,width=1000, height=500)
 
         with st.expander('More info'):
 
             tree_facts(species_df['Species'].iloc[0], api_key)
 
-st.markdown('---')
-with st.expander('Show map'):
-    st.image('uk_agri_capability.png')
+
 feedback = st.feedback("faces")
 if feedback:
     st.write('Thank you for submitting feedback')
