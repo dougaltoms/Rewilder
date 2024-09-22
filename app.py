@@ -25,26 +25,34 @@ tab1, tab2, tab3 = st.tabs(['Data Input', 'Results', 'Mapping'])
 with tab1:
 
     # Input Postcode
-    postcode = st.text_input('Postcode', max_chars=8, value='NR2 1DZ')
-    postcode = str(postcode.upper())
-    geolocator = Nominatim(user_agent="postcode_converter")
-    location = geolocator.geocode(postcode)
+    postcode = st.text_input('Postcode', max_chars=8, placeholder='NR2 1DZ')
 
-    st.session_state['latitude'] = location.latitude
-    st.session_state['longitude'] = location.longitude
+    if postcode:
+
+        try:
+            postcode = str(postcode.upper())
+            geolocator = Nominatim(user_agent="postcode_converter")
+            location = geolocator.geocode(postcode)
+
+            st.session_state['latitude'] = location.latitude
+            st.session_state['longitude'] = location.longitude
+        except AttributeError as e:
+            st.caption('Invalid Postcode')
 
     col1, col2 =  st.columns(2)
     with col1:
         if 'latitude' in st.session_state:
             latitude = st.number_input('Latitude', value=st.session_state.latitude, min_value = 50.0, max_value=60.0, step=.1)
+            st.session_state['latitude'] = latitude
         else:
             latitude = st.number_input('Latitude', value=52.6, min_value = 50.0, max_value=60.0, step=.1)
             st.session_state['latitude'] = latitude
     with col2:
         if 'longitude' in st.session_state:
             longitude = st.number_input('Longitude', value=st.session_state.longitude, min_value=-7.0, max_value=2.0, step=.1)
+            st.session_state['longitude'] = longitude
         else:
-            longitude = st.number_input('Latitude', value=52.6, min_value = 50.0, max_value=60.0, step=.1)
+            longitude = st.number_input('Longitude', value=52.6, min_value = 50.0, max_value=60.0, step=.1)
             st.session_state['longitude'] = longitude
     
     accumulated_temperature, soil_moisture_regime, soil_nutrient_regime = return_features(features_df, st.session_state.latitude, st.session_state.longitude)
@@ -60,9 +68,9 @@ with tab1:
     with res3:
         st.metric('Soil Nutrient Regime', soil_nutrient_regime)
 
-    st.markdown('---')
-    with st.expander('Show map'):
-        st.image('uk_agri_capability.png')    
+    # st.markdown('---')
+    # with st.expander('Show map'):
+    #     st.image('uk_agri_capability.png')    
 
 with tab2:
     with st.spinner('Running model...'):
@@ -113,10 +121,11 @@ with tab3:
             st.session_state.uk_ag['distance_to_point'] = st.session_state.uk_ag['geometry'].distance(point[0])
             threshold = .2
             uk_ag_filtered = st.session_state.uk_ag[st.session_state.uk_ag['distance_to_point'] <= threshold]
-            uk_ag_filtered = uk_ag_filtered.dissolve(by='NUMERIC_GRADE', sort=False)
+            uk_ag_filtered = uk_ag_filtered.dissolve(by='NUMERIC_GRADE')
             uk_ag_filtered = uk_ag_filtered.reset_index()
             uk_ag_filtered = uk_ag_filtered[['geometry', 'NUMERIC_GRADE']]
 
+            m = folium.Map(location=(st.session_state.latitude, st.session_state.longitude))
             m = uk_ag_filtered.explore('NUMERIC_GRADE',cmap='autumn',tiles="Esri.WorldImagery", attr = "© Dougal Toms", legend=False)
             folium.Marker(location=[st.session_state.latitude, st.session_state.longitude],popup=folium.Popup(popup_text, max_width=300), icon=folium.Icon(color="green", icon="tree")).add_to(m)
             st_folium(m,width=1000, height=500)
